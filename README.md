@@ -1,76 +1,53 @@
-
-# Exploratory Data Analysis for Obesity Risk
+# Obesity Level Prediction
 
 ## Project Overview
 
-This project aims to explore and analyze obesity levels based on various factors such as eating habits, physical condition, and lifestyle choices. The dataset involves individuals from countries like Mexico, Peru, and Colombia. The exploratory data analysis (EDA) seeks to uncover underlying patterns, correlations, and insights that may contribute to obesity.
+This project aims to predict obesity levels using individual-specific data, such as body measurements, dietary habits, and family health history. We're exploring how these aspects contribute to obesity, with the goal of helping individuals and healthcare professionals better understand and manage this condition.
 
-### Data Description
+**Data Source:** [Kaggle Dataset](https://www.kaggle.com/datasets/aravindpcoder/obesity-or-cvd-risk-classifyregressorcluster)
 
-The data consists of measurements and survey responses from participants of Mexico, Peru, and Colombia, focusing on their diet, physical activity, and other lifestyle factors. Key variables include gender, age, height, weight, family history of overweight, food consumption habits, physical activity frequency, technology use, transportation methods, and obesity levels (target variable).
+## Repository Structure
 
-### Objectives
+- **Datasets/**: Hosts the data files used in the project, including raw and processed datasets.
+- **Notebooks/**: Features Jupyter notebooks for exploratory data analysis (EDA), model training, and evaluation. These notebooks detail our analysis methods and findings.
+- **scripts/**: Contains Python scripts for data processing, model training, and other utilities.
+- **Streamlit/**: Includes the setup for a Flask-based web app that offers real-time predictions based on the trained model.
+- **pkls/**: Stores the serialized models and any data processing pipelines as pickle files.
+- **.gitignore**: Specifies which files and directories Git should ignore.
+- **LICENSE**: Describes the project's license and usage terms.
+- **README.md**: Provides an overview of the project, setup instructions, and other essential information.
+- **requirements.txt**: Lists the necessary Python packages to run the project.
 
-- To understand the distribution of various factors contributing to obesity.
-- To investigate the relationship between obesity levels and variables such as age, gender, physical activity, and eating habits.
-- To identify significant predictors of obesity levels.
-- To discover potential data-driven insights on mitigating obesity risk.
+## Data Details
 
-### Analysis Steps
+The project's datasets are located in the `Datasets/` directory. The main dataset, `ObesityDataSet.csv`, includes a wide range of features from physical measurements to dietary habits and family disease histories. Additional derived datasets for training and testing purposes are also provided.
 
-1. Data loading and initial exploration: Load the dataset and get a preliminary understanding of its structure and key statistics.
-2. Data cleaning and preprocessing: Handle missing values, outliers, and anomalies. Perform necessary transformations.
-3. Explorative data analysis: Use statistics and visualizations to explore the data in depth.
-4. Feature engineering: Create new features that might be helpful for modeling or provide additional insights.
-5. Correlation and significance testing: Assess the relationship between variables and their impact on obesity levels.
-6. Outlier and anomaly detection: Identify and analyze outliers or abnormal data points.
-7. Conclusions and insights: Draw conclusions from the analysis and suggest actionable insights.
+## Exploratory Data Analysis and Feature Engineering
 
-### Conclusion
+The `EDA_for_obesity_risk_notebook.ipynb` notebook, found in the `Notebooks/` directory, dives deep into the dataset. It outlines the statistical tests used, methods for anomaly detection, and data visualizations that reveal insights about the data. Feature engineering efforts to enhance model performance are also documented here.
 
-This project provides a comprehensive analysis of factors contributing to obesity within the dataset. Key findings and insights can guide further research and interventions to manage and prevent obesity.
+**Notebook Link:** [EDA Notebook](https://github.com/hrczggyrgy/ml-obesity-risk-prediction/blob/main/Notebooks/EDA_for_obesity_risk_notebook.ipynb)
 
-### Requirements
+## Model Training and Evaluation
 
-The required Python libraries for this project include pandas, numpy, matplotlib, seaborn, scipy, and sklearn. A `requirements.txt` file is available in the repository.
+Model training processes are thoroughly detailed in `scripts/train.py`. This script walks through the training of various models, evaluates their performance, and saves the best-performing models for later use. The training process and model evaluation are tracked and documented for transparency.
 
-### Usage
+**Training Tracking:** [WandB Report](https://wandb.ai/herczeg-gyrgy/my-space/reports/Obesity-risk-prediction--Vmlldzo3MTg0MzI2)
 
-1. Clone the repository.
-2. Install dependencies using `pip install -r requirements.txt`.
-3. Run Jupyter Notebook to explore the analysis: `jupyter notebook`.
+**Model Evaluation Notebook:** [Final Model Notebook](https://github.com/hrczggyrgy/ml-obesity-risk-prediction/blob/main/Notebooks/final_model.ipynb)
 
-### Acknowledgements
+## Web Application for Real-time Predictions
 
-Dataset originally provided by a study involving participants from Mexico, Peru, and Colombia. Generated and transformed for educational purposes.
-    
-Training Information:
+A Flask-based web application, set up in the `Streamlit/` directory, enables users to get real-time predictions. This interactive platform makes the project's findings accessible and practical for everyday use.
 
-Data:
-The model has been trained on a dataset with 18295 rows and 35 features.
+## Getting Started
 
-The features include: Gender, Age, Height, Weight, family_history_with_overweight, FAVC, FCVC, NCP, CAEC, SMOKE, CH2O, SCC, FAF, TUE, CALC, MTRANS, log_BMI, age_group, physical_activity_score, caloric_intake_tendency, healthy_eating_score, BMR, meal_regularity_score, snacking_habit, stress_eating_indicator, sedentary_lifestyle_score, overall_lifestyle_score, log_Age, log_Height, log_Weight, sqrt_FCVC, sqrt_NCP, sqrt_CH2O, Height_Weight_interaction, Age_FCVC_interaction.
+To get the project up and running on your local machine, you'll need Python 3.x and the libraries listed in `requirements.txt`. Install them using:
 
-Model:
-A RandomForestClassifier model has been used for training.
+```bash
+pip install -r requirements.txt
 
-The model parameters are: {'bootstrap': True, 'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': None, 'max_features': 'sqrt', 'max_leaf_nodes': None, 'max_samples': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'n_estimators': 100, 'n_jobs': None, 'oob_score': False, 'random_state': 42, 'verbose': 0, 'warm_start': False}.
+'''bash
 
-Optimization:
-The model has been optimized using optuna optimization with 100 trials.
-The best trial score is: 0.9071330964744465
-
-
-
-## Model Training
-The model training process consisted of preprocessing on both numerical and categorical data.
-After preprocessing, a RandomForestClassifier model was fit on the preprocessed data.
-For categorical features preprocessing, the most frequent values were imputed for missing values and then one hot encoded.
-For numerical features preprocessing, the mean was usually used for imputation follwed by StandardScaler for standardization.
-The target (NObeyesdad) was label encoded before training.
-
-For hyperparameter tuning, the methods used were the XGBoost classifier and Optuna for hyperparameter optimization.
-This process was logged using the wandb library for visualization.
-The best set of hyperparameters was selected based on the accuracy of the model.
-
-Additional feature engineering was performed, including creating interactions between different features and normalizing some, to improve the model's performance.
+## Future Directions
+The project lays a foundation for understanding the factors contributing to obesity. Moving forward, we plan to explore additional data processing techniques, more advanced feature engineering methods, and new model architectures to improve prediction accuracy and applicability.
