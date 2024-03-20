@@ -1,0 +1,6 @@
+wandb==0.16.4
+optuna==3.5.0
+xgboost==2.0.3
+shap==0.45.0
+flask==3.0.2
+streamlit==1.32.2
