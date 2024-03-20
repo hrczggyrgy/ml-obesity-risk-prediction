@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 #the model is named 'trained_pipeline.pkl' and located in the same directory)
-model_path='hrczggyrgy/ml-obesity-risk-prediction/Streamlit/trained_pipeline.pkl'
+model_path='trained_pipeline.pkl'
 
 @st.cache(allow_output_mutation=True)
 def load_model():
