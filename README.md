@@ -40,14 +40,12 @@ Model training processes are thoroughly detailed in `scripts/train.py`. This scr
 
 A Flask-based web application, set up in the `Streamlit/` directory, enables users to get real-time predictions. This interactive platform makes the project's findings accessible and practical for everyday use.
 
+## Future Directions
+The project lays a foundation for understanding the factors contributing to obesity. Moving forward, we plan to explore additional data processing techniques, more advanced feature engineering methods, and new model architectures to improve prediction accuracy and applicability.
+
 ## Getting Started
 
 To get the project up and running on your local machine, you'll need Python 3.x and the libraries listed in `requirements.txt`. Install them using:
 
 ```bash
 pip install -r requirements.txt
-
-'''bash
-
-## Future Directions
-The project lays a foundation for understanding the factors contributing to obesity. Moving forward, we plan to explore additional data processing techniques, more advanced feature engineering methods, and new model architectures to improve prediction accuracy and applicability.
