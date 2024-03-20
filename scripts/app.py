@@ -4,6 +4,9 @@ import pandas as pd
 import pickle
 
 # Load your trained model
+with open('best_model.pkl', 'rb') as f:
+    best_model = pickle.load(f)
+
 with open('trained_pipeline.pkl', 'rb') as f:
     model = pickle.load(f)
 
