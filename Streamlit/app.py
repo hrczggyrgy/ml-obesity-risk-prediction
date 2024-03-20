@@ -3,20 +3,18 @@ import pandas as pd
 import joblib
 
 #the model is named 'trained_pipeline.pkl' and located in the same directory)
-@st.cache(allow_output_mutation=True)
-
-MODEL_PATH = 'trained_pipeline.pkl'
+model_path='trained_pipeline.pkl'
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = joblib.load(MODEL_PATH)
+    model = joblib.load(model_path)
     return model
 
 try:
     model = load_model()
     st.write("Model loaded successfully.")
 except FileNotFoundError:
-    st.error(f"Failed to load the model. Make sure the model is located at: {MODEL_PATH}")
+    st.error(f"Failed to load the model. Make sure the model is located at: {model_path}")
 
 
 st.title('Predict Your Obesity Risk Level')
