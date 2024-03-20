@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
-
+from feature_engineering import create_features
 
 # Define the path to the model file
 MODEL_PATH1 = 'best_model.pkl'
@@ -56,7 +56,6 @@ if st.sidebar.button('Predict Obesity Level'):
     input_data = pd.DataFrame([[gender, age, height, weight, family_history, favc, fcvc, ncp, caec, smoke, ch2o, scc, faf, tue, calc, mtrans]],
                               columns=['Gender', 'Age', 'Height', 'Weight', 'family_history_with_overweight', 'FAVC', 'FCVC', 'NCP', 'CAEC', 'SMOKE', 'CH2O', 'SCC', 'FAF', 'TUE', 'CALC', 'MTRANS'])
 
-    input_data= feature_egineer
     # Prediction
     prediction = model.predict(input_data)
     
