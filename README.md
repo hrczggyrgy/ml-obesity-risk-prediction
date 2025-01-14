@@ -34,6 +34,8 @@ Model training processes are thoroughly detailed in `scripts/train.py`. This scr
 
 **Training Tracking:** [WandB Report](https://wandb.ai/herczeg-gyrgy/my-space/reports/Obesity-risk-prediction--Vmlldzo3MTg0MzI2)
 
+<iframe src="https://wandb.ai/herczeg-gyrgy/my-space/reports/Obesity-risk-prediction--Vmlldzo3MTg0MzI2" style="border:none;height:1024px;width:100%">
+
 **Model Evaluation Notebook:** [Final Model Notebook](https://github.com/hrczggyrgy/ml-obesity-risk-prediction/blob/main/Notebooks/final_model.ipynb)
 
 ## Web Application for Real-time Predictions
